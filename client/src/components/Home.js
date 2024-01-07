@@ -39,60 +39,47 @@ function Home() {
   };
 
   return (
-    <div className="container-fluid">
-      <div className="row justify-content-center align-items-center min-vh-100">
-        <div className="col-12 col-md-6">
-          <div className="card shadow-sm p-2 mb-5 bg-secondary rounded">
-            <div className="card-body text-center bg-dark">
-              <img
-                src="/images/codecast.png"
-                alt="Logo"
-                className="img-fluid mx-auto d-block"
-                style={{ maxWidth: "150px" }}
-              />
-              <h4 className="card-title text-light mb-4">Enter the ROOM ID</h4>
+    <div className="homePageWrapper">
+      <div className="formWrapper">
+        <img src="/logo.png" alt="Logo" className="homePageLogo" />
+        <h4 className="mainLabel">Paste invitation ROOM ID</h4>
 
-              <div className="form-group">
-                <input
-                  type="text"
-                  value={roomId}
-                  onChange={(e) => setRoomId(e.target.value)}
-                  className="form-control mb-2"
-                  placeholder="ROOM ID"
-                  onKeyUp={handleInputEnter}
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="text"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  className="form-control mb-2"
-                  placeholder="USERNAME"
-                  onKeyUp={handleInputEnter}
-                />
-              </div>
-              <button
-                onClick={joinRoom}
-                className="btn btn-success btn-lg btn-block"
-              >
-                JOIN
-              </button>
-              <p className="mt-3 text-light">
-                Don't have a room ID? create{" "}
-                <span
-                  onClick={generateRoomId}
-                  className=" text-success p-2"
-                  style={{ cursor: "pointer" }}
-                >
-                  {" "}
-                  New Room
-                </span>
-              </p>
-            </div>
-          </div>
+        <div className="inputGroup">
+          <input
+            type="text"
+            value={roomId}
+            onChange={(e) => setRoomId(e.target.value)}
+            className="inputBox"
+            placeholder="ROOM ID"
+            onKeyUp={handleInputEnter}
+          />
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="inputBox"
+            placeholder="USERNAME"
+            onKeyUp={handleInputEnter}
+          />
+
+          <button onClick={joinRoom} className="bton joinBtn">
+            Join
+          </button>
+          <span className="createInfo">
+            Don't have a room ID? create{" "}
+            <a onClick={generateRoomId} className="createNewBtn">
+              {" "}
+              New Room
+            </a>
+          </span>
         </div>
       </div>
+      <footer>
+        <h4>
+          Built with 💛 &nbsp; by &nbsp;
+          <a href="portfolio-sable-kappa-67.vercel.app">Tejas Chhabra</a>
+        </h4>
+      </footer>
     </div>
   );
 }
